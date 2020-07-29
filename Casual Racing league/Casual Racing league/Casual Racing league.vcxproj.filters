@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="game_objects">
+      <UniqueIdentifier>{518c362e-ba65-4cf0-bf5a-2a3e73951372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_scenes">
+      <UniqueIdentifier>{c3a9ff39-e404-4f88-a2f7-dd62281a8f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_assets">
+      <UniqueIdentifier>{0edb2c01-c0f3-463f-9b7c-e4868a7f4c75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\game_objects\game_manager.cpp">
+      <Filter>game_objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_scenes\gameplay.cpp">
+      <Filter>game_scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_scenes\main_menu.cpp">
+      <Filter>game_scenes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\game_objects\game_manager.h">
+      <Filter>game_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_scenes\gameplay.h">
+      <Filter>game_scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_scenes\main_menu.h">
+      <Filter>game_scenes</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
