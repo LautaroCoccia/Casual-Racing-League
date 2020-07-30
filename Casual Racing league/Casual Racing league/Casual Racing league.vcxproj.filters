@@ -26,6 +26,9 @@
     <ClCompile Include="..\src\game_scenes\main_menu.cpp">
       <Filter>game_scenes</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\game_scenes\instructions.cpp">
+      <Filter>game_scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game_objects\game_manager.h">
@@ -35,6 +38,9 @@
       <Filter>game_scenes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\game_scenes\main_menu.h">
+      <Filter>game_scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_scenes\instructions.h">
       <Filter>game_scenes</Filter>
     </ClInclude>
   </ItemGroup>

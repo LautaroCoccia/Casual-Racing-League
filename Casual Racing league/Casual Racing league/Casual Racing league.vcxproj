@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="..\src\game_objects\game_manager.cpp" />
     <ClCompile Include="..\src\game_scenes\gameplay.cpp" />
+    <ClCompile Include="..\src\game_scenes\instructions.cpp" />
     <ClCompile Include="..\src\game_scenes\main_menu.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game_objects\game_manager.h" />
     <ClInclude Include="..\src\game_scenes\gameplay.h" />
+    <ClInclude Include="..\src\game_scenes\instructions.h" />
     <ClInclude Include="..\src\game_scenes\main_menu.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

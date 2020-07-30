@@ -2,22 +2,36 @@
 
 #include "raylib.h"
 
-
+#include "../game_scenes/main_menu.h"
+#include "../game_scenes/gameplay.h"
 
 namespace Casual_Racing_League
 {
-    const int screenWidth = 800;
-    const int screenHeight = 450;
 
     namespace Game_Manager
     {
-        void InitializeWindowMainLoop();
+        SCENE scene;
 
+        const int screenWidth = 800;
+        const int screenHeight = 450;
+
+        void InitializeWindowMainLoop();
+        void InitScenes();
 
         void InitializeWindowMainLoop()
         {
             InitWindow(screenWidth, screenHeight, "Casual Racing League.exe");
             SetTargetFPS(60);
+
+            scene = menu;
+
+            InitScenes();
+        }
+
+        void InitScenes()
+        {
+            Main_Menu::InitMenu();
+            Gameplay::InitGameMode();
         }
 
         // Set our game to run at 60 frames-per-secondd
@@ -37,11 +51,22 @@ namespace Casual_Racing_League
 
                 // Draw
                 //----------------------------------------------------------------------------------
-                BeginDrawing();
-
                 ClearBackground(BLACK);
 
-                DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+                BeginDrawing();
+
+                switch (scene)
+                {
+                case menu:
+                    Main_Menu::UpdateMenu();
+                    break;
+                case gameplay:
+                    Gameplay::UpdateGameplay();
+                    break;
+                case instructions:
+
+                    break;
+                }
 
                 EndDrawing();
                 //----------------------------------------------------------------------------------
@@ -50,7 +75,6 @@ namespace Casual_Racing_League
             // De-Initialization
             //--------------------------------------------------------------------------------------
             CloseWindow();        // Close window and OpenGL context
-            //--------------------------------------------------------------------------------------
 
         }
 
