@@ -5,8 +5,9 @@ namespace Casual_Racing_League
 {
 	namespace Instructions
 	{
-		
+		void InitInstructions();
+		void UpdateInstructions();
 	}
-	void UpdateHowToPlay();
+	
 }
 #endif // !INSTRUCTIONS_

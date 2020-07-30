@@ -76,8 +76,7 @@ namespace Casual_Racing_League
                 instructions.actualColor = instructions.overState;
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
-                    Game_Manager::state = Game_Manager::gameplay;
-                    Gameplay::modes = Gameplay::fight;
+                    Game_Manager::scene = Game_Manager::instructions;
                 }
             }
             else

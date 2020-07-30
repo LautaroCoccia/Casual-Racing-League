@@ -4,6 +4,7 @@
 
 #include "../game_scenes/main_menu.h"
 #include "../game_scenes/gameplay.h"
+#include "../game_scenes/instructions.h"
 
 namespace Casual_Racing_League
 {
@@ -32,6 +33,7 @@ namespace Casual_Racing_League
         {
             Main_Menu::InitMenu();
             Gameplay::InitGameMode();
+            Instructions::InitInstructions();
         }
 
         // Set our game to run at 60 frames-per-secondd
@@ -64,7 +66,7 @@ namespace Casual_Racing_League
                     Gameplay::UpdateGameplay();
                     break;
                 case instructions:
-
+                    Instructions::UpdateInstructions();
                     break;
                 }
 
