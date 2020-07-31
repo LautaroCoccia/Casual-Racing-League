@@ -13,8 +13,8 @@ namespace Casual_Racing_League
         void DrawInstruction();
         void DrawButtons();
 
-        static int fontTittle = 60;
-        static int fontSubTittle = 45;
+        static int fontTittle = 30;
+        static int fontSubTittle = 20;
         static int fontText = 20;
         static int fontButtons = 24;
         static float widthRec = 200;
@@ -37,19 +37,13 @@ namespace Casual_Racing_League
         // functions for this cpp
         void DrawTittle()
         {
-            DrawText("KEYBOARD BREAKER", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("KEYBOARD BREAKER", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, BLUE);
-            DrawText("How to Play", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("How to Play", fontSubTittle) / 2)), GetScreenHeight() / 5 + distanceTittle, fontSubTittle, WHITE);
+            DrawText("Casual racing League", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("Casual racing League", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, BLUE);
+            DrawText("Instructions", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("Instructions", fontSubTittle) / 2)), GetScreenHeight() / 5 + distanceTittle, fontSubTittle, WHITE);
         }
 
         void DrawInstruction()
         {
-            DrawText("This is a speed game, the fastest player to press the button with its color will win the game.\nWin the best of 30 (common mode) or the one that can fill the upper bar with its color (fight mode)", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("This is a speed game, the fastest player to press the button with its color will win the game.\nWin the best of 30 (common mode) or the one that can fill the upper bar with its color (fight mode)", fontText) / 2)), GetScreenHeight() / 2, fontText, WHITE);
-
-            DrawText("MINES: when it appears, the first player to touch it loses 5 points", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("MINES: when it appears, the first player to touch it loses 5 points", fontText) / 2)), GetScreenHeight() / 2 + fontText * 4, fontText, GREEN);
-
-            DrawText("KEYBOARD BREAKER: press your last key quickly to earn more points", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("KEYBOARD BREAKER: press your last key quickly to earn more points", fontText) / 2)), GetScreenHeight() / 2 + fontText * 5, fontText, GRAY);
-
-            DrawText("BLOCK KEY: press the 1 or 0 key to lock the key to your opponent for 10 touches. Wait for it to appear!", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("BLOCK KEY: press the 1 or 0 key to lock the key to your opponent for 10 touches. Wait for it to appear!", fontText) / 2)), GetScreenHeight() / 2 + fontText * 6, fontText, SKYBLUE);
+            
         }
 
         void DrawButtons()

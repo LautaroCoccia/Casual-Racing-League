@@ -8,7 +8,8 @@ namespace Casual_Racing_League
 {
     namespace Main_Menu
     {
-        BUTTON play;
+        BUTTON singleplayer;
+        BUTTON multiplayer;
         BUTTON instructions;
         BUTTON exit;
 
@@ -30,13 +31,18 @@ namespace Casual_Racing_League
 
         void InitMenu()
         {
-            play.buttonRec.x = static_cast<float>(GetScreenWidth() - rectWidth) / HALF_SCREEN;
-            play.buttonRec.y = static_cast<float>(GetScreenHeight() - rectHeight) / 2.5f;
-            play.buttonRec.width = rectWidth;
-            play.buttonRec.height = rectHeight;
+            singleplayer.buttonRec.x = static_cast<float>(GetScreenWidth() - rectWidth) / HALF_SCREEN;
+            singleplayer.buttonRec.y = static_cast<float>(GetScreenHeight() - rectHeight) / 2.5f;
+            singleplayer.buttonRec.width = rectWidth;
+            singleplayer.buttonRec.height = rectHeight;
+
+            multiplayer.buttonRec.x = static_cast<float>(GetScreenWidth() - rectWidth) / HALF_SCREEN;
+            multiplayer.buttonRec.y = singleplayer.buttonRec.y + rectHeight + rectDistance;
+            multiplayer.buttonRec.width = rectWidth;
+            multiplayer.buttonRec.height = rectHeight;
 
             instructions.buttonRec.x = static_cast<float>(GetScreenWidth() - rectWidth) / HALF_SCREEN;
-            instructions.buttonRec.y = play.buttonRec.y + rectHeight + rectDistance;
+            instructions.buttonRec.y = multiplayer.buttonRec.y + rectHeight + rectDistance;
             instructions.buttonRec.width = rectWidth;
             instructions.buttonRec.height = rectHeight;
 
@@ -57,9 +63,9 @@ namespace Casual_Racing_League
 
         void CheckCollisionButtonMouse()
         {
-            if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, play.buttonRec))
+            if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, singleplayer.buttonRec))
             {
-                play.actualColor = play.overState;
+                singleplayer.actualColor = singleplayer.overState;
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
                     Game_Manager::scene = Game_Manager::gameplay;
@@ -68,8 +74,23 @@ namespace Casual_Racing_League
             }
             else
             {
-                play.actualColor = play.normalState;
+                singleplayer.actualColor = singleplayer.normalState;
             }
+
+            if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, multiplayer.buttonRec))
+            {
+                multiplayer.actualColor = multiplayer.overState;
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                {
+                    Game_Manager::scene = Game_Manager::gameplay;
+                    Gameplay::modes = Gameplay::multiplayer;
+                }
+            }
+            else
+            {
+                multiplayer.actualColor = multiplayer.normalState;
+            }
+
 
             if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, instructions.buttonRec))
             {
@@ -105,8 +126,11 @@ namespace Casual_Racing_League
 
         void DrawButtons()
         {
-            DrawRectangleRec(play.buttonRec, play.actualColor);
-            DrawText("PLAY", static_cast<int>(play.buttonRec.x + play.buttonRec.width / HALF_SCREEN) - (MeasureText("PLAY", 24) / 2), static_cast<int>(play.buttonRec.y + rectHeight / 3), buttonsFont, BLACK);
+            DrawRectangleRec(singleplayer.buttonRec, singleplayer.actualColor);
+            DrawText("Singleplayer", static_cast<int>(singleplayer.buttonRec.x + singleplayer.buttonRec.width / HALF_SCREEN) - (MeasureText("Singleplayer", 24) / 2), static_cast<int>(singleplayer.buttonRec.y + rectHeight / 3), buttonsFont, BLACK);
+
+            DrawRectangleRec(multiplayer.buttonRec, multiplayer.actualColor);
+            DrawText("Multiplayer", static_cast<int>(multiplayer.buttonRec.x + multiplayer.buttonRec.width / HALF_SCREEN) - (MeasureText("Multiplayer", 24) / 2), static_cast<int>(multiplayer.buttonRec.y + rectHeight / 3), buttonsFont, BLACK);
 
             DrawRectangleRec(instructions.buttonRec, instructions.actualColor);
             DrawText("Instructions", static_cast<int>(instructions.buttonRec.x + instructions.buttonRec.width / HALF_SCREEN) - (MeasureText("Instructions", 24) / 2), static_cast<int>(instructions.buttonRec.y + rectHeight / 3), buttonsFont, BLACK);

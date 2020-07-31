@@ -1,7 +1,9 @@
 #include "gameplay.h"
 
 #include "Raylib.h"
-#include <iostream>
+
+#include "../game_objects/players.h"
+
 namespace Casual_Racing_League
 {
 	namespace Gameplay
@@ -10,21 +12,19 @@ namespace Casual_Racing_League
 
 		void Timer();
 
-		void InitGameMode()
-		{
-			
-			modes = singleplayer;
-		}
-
 		void UpdateGameplay()
 		{
 			switch (modes)
 			{
 			case singleplayer:
-				DrawText("GAMEPLAY", 50, GetScreenHeight() / 3 + 150, 50, BLUE);
+				Players::InputPlayer1();
+				Players::DrawPlayer1();
 				break;
-			case multiPlayer:
-				DrawText("GAMEPLAY", 50, GetScreenHeight() / 3 + 150, 100, BLUE);
+			case multiplayer:
+				Players::InputPlayer1();
+				Players::InputPlayer2();
+				Players::DrawPlayer1();
+				Players::DrawPlayer2();
 				break;
 			}
 		}

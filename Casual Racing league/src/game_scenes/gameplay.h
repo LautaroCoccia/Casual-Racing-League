@@ -7,12 +7,11 @@ namespace Casual_Racing_League
 	{
 		enum gameModes
 		{
-			singleplayer, multiPlayer
+			singleplayer, multiplayer
 		};
 
 		extern gameModes modes;
 
-		void InitGameMode();
 		void UpdateGameplay();
 	}
 	

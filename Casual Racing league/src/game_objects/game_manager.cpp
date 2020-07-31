@@ -5,6 +5,7 @@
 #include "../game_scenes/main_menu.h"
 #include "../game_scenes/gameplay.h"
 #include "../game_scenes/instructions.h"
+#include "players.h"
 
 namespace Casual_Racing_League
 {
@@ -23,16 +24,14 @@ namespace Casual_Racing_League
         {
             InitWindow(screenWidth, screenHeight, "Casual Racing League.exe");
             SetTargetFPS(60);
-
-            scene = menu;
-
             InitScenes();
         }
 
         void InitScenes()
         {
             Main_Menu::InitMenu();
-            Gameplay::InitGameMode();
+            Players::InitPlayer1();
+            Players::InitPlayer2();
             Instructions::InitInstructions();
         }
 
