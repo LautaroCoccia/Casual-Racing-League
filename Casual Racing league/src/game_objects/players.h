@@ -9,7 +9,9 @@ namespace Casual_Racing_League
 	{
 		struct PLAYER
 		{
+			bool win;
 			int playerLap;
+			int checker;
 			Vector2 position;
 			Vector2 speed;
 			float acceleration;
@@ -23,6 +25,11 @@ namespace Casual_Racing_League
 		void InputPlayer2();
 		void DrawPlayer1();
 		void DrawPlayer2();
+		void InitChecker();
+		void DrawChecker();
+		void CollisionChecker();
+		bool Player1Win();
+		bool Player2Win();
 	}
 }
 #endif // !PLAYERS_H

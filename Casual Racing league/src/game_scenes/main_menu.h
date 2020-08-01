@@ -9,6 +9,7 @@ namespace Casual_Racing_League
 	{
 		struct BUTTON
 		{
+
 			bool cursorOver = false;
 			Rectangle buttonRec;
 			Color normalState = WHITE;

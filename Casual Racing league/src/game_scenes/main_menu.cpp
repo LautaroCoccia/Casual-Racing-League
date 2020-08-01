@@ -1,8 +1,8 @@
 #include "main_menu.h"
 
 #include "../game_objects/game_manager.h"
-
 #include "gameplay.h"
+#include "../game_assets/sounds.h"
 
 namespace Casual_Racing_League
 {
@@ -65,9 +65,11 @@ namespace Casual_Racing_League
         {
             if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, singleplayer.buttonRec))
             {
+                
                 singleplayer.actualColor = singleplayer.overState;
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
+                    PlaySound(Sounds::buttons);
                     Game_Manager::scene = Game_Manager::gameplay;
                     Gameplay::modes = Gameplay::singleplayer;
                 }
@@ -79,9 +81,11 @@ namespace Casual_Racing_League
 
             if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, multiplayer.buttonRec))
             {
+                
                 multiplayer.actualColor = multiplayer.overState;
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
+                    PlaySound(Sounds::buttons);
                     Game_Manager::scene = Game_Manager::gameplay;
                     Gameplay::modes = Gameplay::multiplayer;
                 }
@@ -94,9 +98,11 @@ namespace Casual_Racing_League
 
             if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, instructions.buttonRec))
             {
+                
                 instructions.actualColor = instructions.overState;
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
+                    PlaySound(Sounds::buttons);
                     Game_Manager::scene = Game_Manager::instructions;
                 }
             }
@@ -107,9 +113,11 @@ namespace Casual_Racing_League
 
             if (CheckCollisionCircleRec(GetMousePosition(), MOUSE_RADIUS, exit.buttonRec))
             {
+               
                 exit.actualColor = exit.exitState;
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
+                    PlaySound(Sounds::buttons);
                     exitGame = true;
                 }
             }
@@ -147,9 +155,9 @@ namespace Casual_Racing_League
             int distanceY1 = 10;
             int distanceY2 = 25;
 
-            DrawText("Made with RAYLIB", distanceX, distanceY1, font, WHITE);
+            DrawText("Made with RAYLIB", distanceX, distanceY1, font, BLACK);
 
-            DrawText("Lautaro G. Coccia", distanceX, GetScreenHeight() - distanceY2, font, WHITE);
+            DrawText("Lautaro G. Coccia", distanceX, GetScreenHeight() - distanceY2, font, BLACK);
         }
         
     }

@@ -32,8 +32,8 @@
     <ClCompile Include="..\src\game_objects\players.cpp">
       <Filter>game_objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\game_objects\tracks.cpp">
-      <Filter>game_objects</Filter>
+    <ClCompile Include="..\src\game_assets\sounds.cpp">
+      <Filter>game_assets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,8 +52,8 @@
     <ClInclude Include="..\src\game_objects\players.h">
       <Filter>game_objects</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\game_objects\tracks.h">
-      <Filter>game_objects</Filter>
+    <ClInclude Include="..\src\game_assets\sounds.h">
+      <Filter>game_assets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@
 #include "../game_scenes/gameplay.h"
 #include "../game_scenes/instructions.h"
 #include "players.h"
+#include "../game_assets/sounds.h"
 
 namespace Casual_Racing_League
 {
@@ -25,36 +26,33 @@ namespace Casual_Racing_League
             InitWindow(screenWidth, screenHeight, "Casual Racing League.exe");
             SetTargetFPS(60);
             InitScenes();
+            Sounds::LoadMusic();
         }
 
         void InitScenes()
         {
             Main_Menu::InitMenu();
+            Gameplay::InitGameplay();
             Players::InitPlayer1();
             Players::InitPlayer2();
             Instructions::InitInstructions();
         }
 
-        // Set our game to run at 60 frames-per-secondd
-                //--------------------------------------------------------------------------------------
-
-                // Main game loop
         void MainGameLoop()
         {
             InitializeWindowMainLoop();
 
-            while (!WindowShouldClose())    // Detect window close button or ESC key
-            {
-                // Update
-                //----------------------------------------------------------------------------------
-                // TODO: Update your variables here
-                //----------------------------------------------------------------------------------
+            Texture2D background = LoadTexture("assets/background.png");
 
-                // Draw
-                //----------------------------------------------------------------------------------
-                ClearBackground(BLACK);
+            while (!WindowShouldClose())    
+            {   
 
                 BeginDrawing();
+
+                ClearBackground(BLACK);
+
+                
+                DrawTexture(background, screenWidth / 2 - background.width / 2, screenHeight / 2 - background.height / 2, WHITE);
 
                 switch (scene)
                 {
@@ -70,12 +68,11 @@ namespace Casual_Racing_League
                 }
 
                 EndDrawing();
-                //----------------------------------------------------------------------------------
+                
             }
 
-            // De-Initialization
-            //--------------------------------------------------------------------------------------
-            CloseWindow();        // Close window and OpenGL context
+            Sounds::UnloadMusic();
+            CloseWindow();       
 
         }
 
